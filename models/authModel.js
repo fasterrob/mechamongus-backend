@@ -26,6 +26,9 @@ const authSchema = new mongoose.Schema(
       type: String,
       require: true,
     },
+    address: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

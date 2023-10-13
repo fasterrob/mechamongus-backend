@@ -9,9 +9,18 @@ const getUser = async (req, res) => {
   }
 };
 
+const getUserById = async (req, res) => {
+  try {
+    const data = await service.getUserById(req);
+    res.status(200).send(data);
+  } catch (e) {
+    res.status(500).send(e);
+  }
+};
+
 const removeUser = async (req, res) => {
   try {
-    const data = await service.removeUser(req);
+    const data = await service.removeUser(req.body);
     res.status(201).send(data);
   } catch (e) {
     res.status(500).send(e);
@@ -21,4 +30,5 @@ const removeUser = async (req, res) => {
 module.exports = {
   getUser,
   removeUser,
+  getUserById,
 };
