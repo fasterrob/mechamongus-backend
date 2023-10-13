@@ -17,6 +17,11 @@ app.get("/", (req, res) => {
 
 app.use("/login", require("./service/auth/authApi"));
 
+
+// admin-page
+app.use("/admin/user", require("./service/user/userApi"));
+
+
 app.listen(3000, () => {
   console.log(`listening on ${3000}`);
 });
