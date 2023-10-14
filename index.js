@@ -15,12 +15,13 @@ app.get("/", (req, res) => {
   res.sendStatus(200);
 });
 
+// front-end
 app.use("/login", require("./service/auth/authApi"));
 
 
-// admin-page
+// backoffice
 app.use("/admin/user", require("./service/user/userApi"));
-
+app.use("/admin/product", require("./service/product/productApi"));
 
 app.listen(3000, () => {
   console.log(`listening on ${3000}`);
