@@ -20,6 +20,8 @@ app.use("/login", require("./service/auth/authApi"));
 app.use("/cart", require("./service/cart/cartApi"));
 app.use("/customize", require("./service/customize/customizeApi"));
 
+app.use("/order", require("./service/order/orderApi"));
+
 // backoffice
 app.use("/admin/user", require("./service/user/userApi"));
 app.use("/admin/product", require("./service/product/productApi"));

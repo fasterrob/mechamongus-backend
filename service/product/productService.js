@@ -49,6 +49,29 @@ const getProductById = (req) => {
     }
   });
 };
+const updateProductById = (pro) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const product = await Product.updateOne(
+        { _id: pro.id },
+        {
+          product_id: pro.product_id,
+          product_name: pro.product_name,
+          product_desc: pro.product_desc,
+          price: pro.price,
+          count: pro.count,
+          category_id: pro.category_id,
+          uploaded_date: pro.uploaded_date,
+        }
+      );
+      console.log("Product >>>", product);
+      resolve(product);
+    } catch (error) {
+      console.log(error);
+      reject(error);
+    }
+  });
+};
 
 const removeProductById = (req) => {
   return new Promise(async (resolve, reject) => {
@@ -67,5 +90,6 @@ module.exports = {
   createProduct,
   getProducts,
   getProductById,
+  updateProductById,
   removeProductById,
 };

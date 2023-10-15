@@ -100,14 +100,12 @@ const removeItemInCart = async (req) => {
   });
 };
 
-const removeCart = (id) => {
+const removeCart = (req) => {
   return new Promise(async (resolve, reject) => {
     try {
-      const cartId = id.id;
-      console.log(cartId);
-      const cart = await Cart.deleteOne({ id: cartId });
+      const cart = await Cart.deleteOne({ userId: req.query.id });
       console.log("Delete cart >>> ", cart);
-      resolve(user);
+      resolve(cart);
     } catch (error) {
       reject(error);
     }

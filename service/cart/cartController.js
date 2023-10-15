@@ -27,7 +27,6 @@ const getCartById = async (req, res) => {
   }
 };
 
-
 const updateCartById = async (req, res) => {
   try {
     const updatedCart = await service.updateCartById(req);
@@ -36,7 +35,6 @@ const updateCartById = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
-
 
 const removeItemInCart = async (req, res) => {
   try {
@@ -49,7 +47,7 @@ const removeItemInCart = async (req, res) => {
 
 const removeCart = async (req, res) => {
   try {
-    const data = await service.removeCart(req.body);
+    const data = await service.removeCart(req);
     res.status(201).send(data);
   } catch (e) {
     res.status(500).send(e);
