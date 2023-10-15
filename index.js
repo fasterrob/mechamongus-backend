@@ -17,7 +17,8 @@ app.get("/", (req, res) => {
 
 // front-end
 app.use("/login", require("./service/auth/authApi"));
-
+app.use("/cart", require("./service/cart/cartApi"));
+app.use("/customize", require("./service/customize/customizeApi"));
 
 // backoffice
 app.use("/admin/user", require("./service/user/userApi"));
